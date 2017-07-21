@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>Flexboxを使ったwrap配置</title>
+<link href="../_common/css/style.css" rel="stylesheet" type="text/css">
+<style>
+img {
+	width: 100%;
+	height: auto;
+}
+.gallery {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.caption {
+	margin: 0;
+	font-size: 0.875em;
+}
+/* flexbox */
+.gallery {
+	display: flex;
+	justify-content: flex-start;
+	flex-flow: row wrap;
+}
+.flexitem {
+	box-sizing: border-box;
+	flex: 1 1 298px;
+	padding: 8px;
+}
+</style>
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>Flexboxを使ったwrap配置</h1>
+<h2>最後の段の位置調整にjQueryを使う</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+	<ul class="gallery" id="gallery">
+		<li class="flexitem">
+			<img src="images/img1.jpg">
+		</li>
+		<li class="flexitem">
+			<img src="images/img2.jpg">
+		</li>
+		<li class="flexitem">
+			<img src="images/img3.jpg">
+		</li>
+		<li class="flexitem">
+			<img src="images/img4.jpg">
+		</li>
+		<li class="flexitem">
+			<img src="images/img5.jpg">
+		</li>
+		<li class="flexitem">
+			<img src="images/img6.jpg">
+		</li>
+		<li class="flexitem">
+			<img src="images/img7.jpg">
+		</li>
+		<li class="flexitem">
+			<img src="images/img8.jpg">
+		</li>
+		<li class="flexitem">
+			<img src="images/img9.jpg">
+		</li>
+	</ul>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script src="../script/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	var short = 3 - ($('.flexitem').length % 3);
+	for(var i = 0; i < short; i++){
+		var newDiv = $('<div></div>', {
+			class: 'flexitem'
+		});
+		$('#gallery').append(newDiv);
+	}
+});
+</script>
+</body>
+</html>

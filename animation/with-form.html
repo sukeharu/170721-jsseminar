@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../_common/css/style.css" rel="stylesheet" type="text/css">
+<style>
+.effect {
+
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 8px 16px;
+	font-size: 48px;
+	font-family: 'AvenirNext-DemiBold';
+}
+.text {
+	padding: 8px;
+	font-size: 16px;
+}
+.apply {
+	padding: 8px;
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>Timerを使ったアニメーション</h1>
+<h2>　</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+	<p>
+		<input type="text" id="text" class="text">
+		<button id="apply" class="apply">ANIMATION</button>
+	</p>
+	<div id="effect" class="effect"></div>
+
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+
+<script>
+var animation = function(text){
+	var typeText = text;
+	var counter = 1;
+	var intervalId = setInterval(function(){
+		if(counter <= typeText.length){
+			var part = typeText.substr(0, counter);
+			counter++;
+			document.getElementById('effect').textContent = part;
+		}
+	}, 100);
+}
+
+document.getElementById('apply').onclick = function(){
+	var text = document.getElementById('text').value;
+	animation(text);
+}
+</script>
+
+</body>
+</html>

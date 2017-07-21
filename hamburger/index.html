@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>ハンバーガーメニュー</title>
+<link href="../_common/css/style.css" rel="stylesheet" type="text/css">
+<style>
+.header-contents {
+	position: relative;
+}
+.hamburger {
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	border: 1px solid white;
+	border-radius: 6px;
+	width: 40px;
+	height: 40px;
+	color: transparent;
+	background: url(images/hamburger.png) center center no-repeat;
+	background-size: 30px 30px;
+}
+.navigation {
+	display: none;
+}
+.gnav {
+	margin: 16px;
+	padding: 0;
+	list-style: none;
+}
+.gnav li {
+	padding: 4px;
+}
+.gnav li:hover {
+	background: white;
+}
+.gnav a:hover {
+	text-decoration: none;
+}
+@media (min-width: 768px){
+	.hamburger {
+		display: none;
+	}
+	.navigation {
+		display: none;
+	}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>ハンバーガーメニュー</h1>
+<h2>JavaScript Seminar</h2>
+<button class="hamburger" id="hamburger"></button>
+</div><!-- /.header-contents -->
+</header>
+
+<nav class="navigation">
+	<ul class="gnav">
+		<li><a href="#">お買い得情報</a></li>
+		<li><a href="#">ショッピングカート</a></li>
+		<li><a href="#">アカウント管理</a></li>
+		<li><a href="#">お問い合わせ</a></li>
+	</ul>
+</nav>
+
+<div class="main-wrapper">
+<section>
+	
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script src="../script/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('#hamburger').on('click', function(){
+		$('.navigation').slideToggle();
+	});
+});
+</script>
+</body>
+</html>
